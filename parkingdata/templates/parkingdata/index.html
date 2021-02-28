@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowest Rated Parking Lots</title>
+</head>
+<body>
+    <h1>Lowest Rated Parking Lots</h1>
+    <row>
+        <form>
+            <text>Location: </text>
+            <input type="text" name="location" value={{ location }}>
+            <text>Minimum number of reviews: </text>
+            <input type="number" name="min_reviews" value={{min_reviews}}>
+            <button type="submit">Submit</button>
+        </form>
+    </row>
+    <row>
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>                
+                <th>Address</th>
+                <th>Star Rating</th>
+                <th>Review Count</th>
+                <th>Score</th>
+                <th>Link</th>
+            </tr>
+            {% for lot in lots %}
+            <tr>
+                <td><img src={{ lot.image }} height='150px'></td>
+                <td>{{ lot.name }}</td>
+                <td>{{ lot.address }}</td>
+                <td>{{ lot.star_rating }}</td>
+                <td>{{ lot.review_count }}</td>
+                <td>{{ lot.score }}</td>
+                <td>{{ lot.link }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </row>
+</body>
+</html>
